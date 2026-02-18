@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Das Warum-Spiel</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden; /* Verhindert Scrollen bei zu vielen Fenstern */
+            height: 100vh;
+            margin: 0;
+        }
+        .window {
+            position: absolute;
+            background: #fff;
+            color: #000;
+            border: 2px solid #000;
+            padding: 15px;
+            width: 250px;
+            box-shadow: 10px 10px 0px rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            z-index: 10;
+        }
+        .window h2 { font-size: 1.2rem; margin-top: 0; }
+        input { width: 90%; margin: 10px 0; padding: 5px; }
+        button { 
+            background: #ff4757; 
+            color: white; 
+            border: none; 
+            padding: 8px 15px; 
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover { background: #ff6b81; }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <div class="window" style="top: 20%; left: 35%;">
+            <h2>Warum?</h2>
+            <input type="text" placeholder="Deine Antwort..." id="input-start">
+            <br>
+            <button onclick="spawnWhy()">Erklären</button>
+        </div>
+    </div>
+
+    <script>
+        function spawnWhy() {
+            const container = document.getElementById('container');
+            
+            // Zufällige Position berechnen
+            const x = Math.random() * (window.innerWidth - 280);
+            const y = Math.random() * (window.innerHeight - 150);
+            
+            // Neues Fenster-Element erstellen
+            const newWindow = document.createElement('div');
+            newWindow.className = 'window';
+            newWindow.style.left = x + 'px';
+            newWindow.style.top = y + 'px';
+            
+            // Inhalt des neuen Fensters
+            newWindow.innerHTML = `
+                <h2>Aber... warum?</h2>
+                <input type="text" placeholder="Versuch's nochmal...">
+                <br>
+                <button onclick="spawnWhy()">Weiter erklären</button>
+            `;
+            
+            container.appendChild(newWindow);
+            
+            // Fokus auf das neue Input-Feld setzen
+            newWindow.querySelector('input').focus();
+        }
+    </script>
+</body>
+</html>
