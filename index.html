@@ -51,4 +51,96 @@
         }
 
         .window h2 {
-            font-family: 'Press Start 2P', cursive; /* Retro
+            font-family: 'Press Start 2P', cursive; /* Retro-Pixel-Look */
+            font-size: 1.4rem;
+            margin-top: 0;
+            text-align: center;
+            text-shadow: 0 0 8px #00e6e6; /* Leuchtender Text */
+            color: #00e6e6;
+        }
+
+        input {
+            width: calc(100% - 10px);
+            margin: 10px 0;
+            padding: 10px;
+            background: #222;
+            border: 1px solid #00e6e6;
+            color: #00e6e6;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            box-shadow: 0 0 5px #00e6e6;
+            outline: none;
+        }
+
+        button { 
+            background: #ff00ff; /* Neon Pink Button */
+            color: #0d0d0d; /* Dunkler Text auf Button */
+            border: none; 
+            padding: 10px 20px; 
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            text-shadow: 0 0 5px #00e6e6;
+            box-shadow: 0 0 10px #ff00ff;
+            transition: background 0.2s ease, box-shadow 0.2s ease;
+        }
+        button:hover { 
+            background: #ff33ff; 
+            box-shadow: 0 0 20px #ff33ff;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <div class="window" style="top: 30%; left: 35%;" id="initial-window">
+            <h2>Warum hast du auf den Link gedrückt?</h2>
+            <input type="text" placeholder="Erklär dich..." id="input-start">
+            <br>
+            <button onclick="spawnWhy(this.parentNode)">Ich muss mich erklären</button>
+        </div>
+    </div>
+
+    <script>
+        let zIndexCounter = 1000; // Für überlappende Fenster
+
+        function spawnWhy(parentWindow) {
+            const container = document.getElementById('container');
+            
+            // Zufällige Position berechnen, leicht variiert um das Chaos zu steigern
+            const x = Math.random() * (window.innerWidth - 350) + 20; // 20px Rand
+            const y = Math.random() * (window.innerHeight - 200) + 20; // 20px Rand
+            
+            // Neues Fenster-Element erstellen
+            const newWindow = document.createElement('div');
+            newWindow.className = 'window';
+            newWindow.style.left = x + 'px';
+            newWindow.style.top = y + 'px';
+            newWindow.style.zIndex = ++zIndexCounter; // Sorgt für Überlappung
+
+            // Wackel-Effekt (optional, kann entfernt werden)
+            newWindow.style.transform = `translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`; 
+            
+            // Inhalt des neuen Fensters
+            newWindow.innerHTML = `
+                <h2>Aber... warum?</h2>
+                <input type="text" placeholder="Gibt es denn kein Ende?">
+                <br>
+                <button onclick="spawnWhy(this.parentNode)">Ich muss weiter erklären!</button>
+            `;
+            
+            container.appendChild(newWindow);
+            
+            // Optional: Eingabe aus dem vorherigen Fenster löschen
+            const previousInput = parentWindow.querySelector('input');
+            if (previousInput) {
+                previousInput.value = "";
+            }
+
+            // Fokus auf das neue Input-Feld setzen
+            newWindow.querySelector('input').focus();
+        }
+    </script>
+</body>
+</html>
