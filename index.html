@@ -3,78 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Das Warum-Spiel</title>
+    <title>Das Warum-Spiel - Du hast geklickt!</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap');
+
         body {
-            background-color: #1a1a1a;
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden; /* Verhindert Scrollen bei zu vielen Fenstern */
+            background-color: #0d0d0d; /* Sehr dunkler Hintergrund */
+            color: #00e6e6; /* Neon Cyan für Text */
+            font-family: 'Orbitron', sans-serif; /* Futuristischer Look */
+            overflow: hidden; /* Verhindert Scrollen */
             height: 100vh;
             margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path fill="%2300FFFF" d="M50 0c-2.4 0-4.8 1-6.7 2.9L0 46.2v7.6l43.3 43.3c1.9 1.9 4.3 2.9 6.7 2.9s4.8-1 6.7-2.9L100 53.8v-7.6L56.7 2.9C54.8 1 52.4 0 50 0zM50 8.5c1.4 0 2.8 0.5 3.9 1.6l37.6 37.6v5.8L53.9 90c-1.1 1.1-2.5 1.6-3.9 1.6s-2.8-0.5-3.9-1.6L8.5 53.8v-5.8l37.6-37.6c1.1-1.1 2.5-1.6 3.9-1.6zM50 20c-1.4 0-2.8 0.5-3.9 1.6L10.7 56.9v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L89.3 60v-3.1L53.9 21.6c-1.1-1.1-2.5-1.6-3.9-1.6zM50 31.5c-1.4 0-2.8 0.5-3.9 1.6L20.8 65.8v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L79.2 69v-3.1L53.9 33.1c-1.1-1.1-2.5-1.6-3.9-1.6zM50 43c-1.4 0-2.8 0.5-3.9 1.6L30.9 73.5v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L69.1 76.6v-3.1L53.9 44.6c-1.1-1.1-2.5-1.6-3.9-1.6zM50 54.5c-1.4 0-2.8 0.5-3.9 1.6L41 81.3v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L59 84.4v-3.1L53.9 56.1c-1.1-1.1-2.5-1.6-3.9-1.6zM50 66c-1.4 0-2.8 0.5-3.9 1.6L51 77.2v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L50 80.3v-3.1L53.9 67.6c-1.1-1.1-2.5-1.6-3.9-1.6z" /><path fill="%2300FFFF" d="M50 0c-2.4 0-4.8 1-6.7 2.9L0 46.2v7.6l43.3 43.3c1.9 1.9 4.3 2.9 6.7 2.9s4.8-1 6.7-2.9L100 53.8v-7.6L56.7 2.9C54.8 1 52.4 0 50 0zM50 8.5c1.4 0 2.8 0.5 3.9 1.6l37.6 37.6v5.8L53.9 90c-1.1 1.1-2.5 1.6-3.9 1.6s-2.8-0.5-3.9-1.6L8.5 53.8v-5.8l37.6-37.6c1.1-1.1 2.5-1.6 3.9-1.6zM50 20c-1.4 0-2.8 0.5-3.9 1.6L10.7 56.9v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L89.3 60v-3.1L53.9 21.6c-1.1-1.1-2.5-1.6-3.9-1.6zM50 31.5c-1.4 0-2.8 0.5-3.9 1.6L20.8 65.8v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L79.2 69v-3.1L53.9 33.1c-1.1-1.1-2.5-1.6-3.9-1.6zM50 43c-1.4 0-2.8 0.5-3.9 1.6L30.9 73.5v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L69.1 76.6v-3.1L53.9 44.6c-1.1-1.1-2.5-1.6-3.9-1.6zM50 54.5c-1.4 0-2.8 0.5-3.9 1.6L41 81.3v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L59 84.4v-3.1L53.9 56.1c-1.1-1.1-2.5-1.6-3.9-1.6zM50 66c-1.4 0-2.8 0.5-3.9 1.6L51 77.2v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L50 80.3v-3.1L53.9 67.6c-1.1-1.1-2.5-1.6-3.9-1.6z" /></svg>'); /* Punisher Skull as SVG background */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 80%; /* Größe des Skulls */
+            animation: glitchBg 10s infinite alternate; /* Hintergrund-Glitch-Effekt */
         }
+
+        @keyframes glitchBg {
+            0% { background-position: center; filter: hue-rotate(0deg); }
+            25% { background-position: top left; filter: hue-rotate(90deg); }
+            50% { background-position: bottom right; filter: hue-rotate(180deg); }
+            75% { background-position: top right; filter: hue-rotate(270deg); }
+            100% { background-position: center; filter: hue-rotate(360deg); }
+        }
+
         .window {
             position: absolute;
-            background: #fff;
-            color: #000;
-            border: 2px solid #000;
-            padding: 15px;
-            width: 250px;
-            box-shadow: 10px 10px 0px rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-            z-index: 10;
+            background: rgba(10, 10, 10, 0.9); /* Halbdurchsichtiger dunkler Hintergrund */
+            border: 2px solid #ff00ff; /* Neon Pinker Rahmen */
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 0 15px #ff00ff, inset 0 0 5px #ff00ff; /* Neon-Leuchten */
+            border-radius: 3px;
+            z-index: 1000; /* Immer oben */
+            transition: transform 0.1s ease-out; /* Für Wackel-Effekt */
+            animation: windowAppear 0.5s ease-out forwards;
         }
-        .window h2 { font-size: 1.2rem; margin-top: 0; }
-        input { width: 90%; margin: 10px 0; padding: 5px; }
-        button { 
-            background: #ff4757; 
-            color: white; 
-            border: none; 
-            padding: 8px 15px; 
-            cursor: pointer;
-            font-weight: bold;
-        }
-        button:hover { background: #ff6b81; }
-    </style>
-</head>
-<body>
 
-    <div id="container">
-        <div class="window" style="top: 20%; left: 35%;">
-            <h2>Warum?</h2>
-            <input type="text" placeholder="Deine Antwort..." id="input-start">
-            <br>
-            <button onclick="spawnWhy()">Erklären</button>
-        </div>
-    </div>
-
-    <script>
-        function spawnWhy() {
-            const container = document.getElementById('container');
-            
-            // Zufällige Position berechnen
-            const x = Math.random() * (window.innerWidth - 280);
-            const y = Math.random() * (window.innerHeight - 150);
-            
-            // Neues Fenster-Element erstellen
-            const newWindow = document.createElement('div');
-            newWindow.className = 'window';
-            newWindow.style.left = x + 'px';
-            newWindow.style.top = y + 'px';
-            
-            // Inhalt des neuen Fensters
-            newWindow.innerHTML = `
-                <h2>Aber... warum?</h2>
-                <input type="text" placeholder="Versuch's nochmal...">
-                <br>
-                <button onclick="spawnWhy()">Weiter erklären</button>
-            `;
-            
-            container.appendChild(newWindow);
-            
-            // Fokus auf das neue Input-Feld setzen
-            newWindow.querySelector('input').focus();
+        @keyframes windowAppear {
+            from { opacity: 0; transform: scale(0.8) translateY(-20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
-    </script>
-</body>
-</html>
+
+        .window h2 {
+            font-family: 'Press Start 2P', cursive; /* Retro
