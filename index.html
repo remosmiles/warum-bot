@@ -3,143 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Das Warum-Spiel - Du hast geklickt!</title>
+    <title>Das endlose Warum</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap');
 
         body {
-            background-color: #0d0d0d; /* Sehr dunkler Hintergrund */
-            color: #00e6e6; /* Neon Cyan für Text */
-            font-family: 'Orbitron', sans-serif; /* Futuristischer Look */
-            overflow: hidden; /* Verhindert Scrollen */
+            background-color: #050505;
+            color: #00e6e6;
+            font-family: 'Orbitron', sans-serif;
+            overflow: hidden;
             height: 100vh;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path fill="%2300FFFF" d="M50 0c-2.4 0-4.8 1-6.7 2.9L0 46.2v7.6l43.3 43.3c1.9 1.9 4.3 2.9 6.7 2.9s4.8-1 6.7-2.9L100 53.8v-7.6L56.7 2.9C54.8 1 52.4 0 50 0zM50 8.5c1.4 0 2.8 0.5 3.9 1.6l37.6 37.6v5.8L53.9 90c-1.1 1.1-2.5 1.6-3.9 1.6s-2.8-0.5-3.9-1.6L8.5 53.8v-5.8l37.6-37.6c1.1-1.1 2.5-1.6 3.9-1.6zM50 20c-1.4 0-2.8 0.5-3.9 1.6L10.7 56.9v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L89.3 60v-3.1L53.9 21.6c-1.1-1.1-2.5-1.6-3.9-1.6zM50 31.5c-1.4 0-2.8 0.5-3.9 1.6L20.8 65.8v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L79.2 69v-3.1L53.9 33.1c-1.1-1.1-2.5-1.6-3.9-1.6zM50 43c-1.4 0-2.8 0.5-3.9 1.6L30.9 73.5v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L69.1 76.6v-3.1L53.9 44.6c-1.1-1.1-2.5-1.6-3.9-1.6zM50 54.5c-1.4 0-2.8 0.5-3.9 1.6L41 81.3v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L59 84.4v-3.1L53.9 56.1c-1.1-1.1-2.5-1.6-3.9-1.6zM50 66c-1.4 0-2.8 0.5-3.9 1.6L51 77.2v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L50 80.3v-3.1L53.9 67.6c-1.1-1.1-2.5-1.6-3.9-1.6z" /><path fill="%2300FFFF" d="M50 0c-2.4 0-4.8 1-6.7 2.9L0 46.2v7.6l43.3 43.3c1.9 1.9 4.3 2.9 6.7 2.9s4.8-1 6.7-2.9L100 53.8v-7.6L56.7 2.9C54.8 1 52.4 0 50 0zM50 8.5c1.4 0 2.8 0.5 3.9 1.6l37.6 37.6v5.8L53.9 90c-1.1 1.1-2.5 1.6-3.9 1.6s-2.8-0.5-3.9-1.6L8.5 53.8v-5.8l37.6-37.6c1.1-1.1 2.5-1.6 3.9-1.6zM50 20c-1.4 0-2.8 0.5-3.9 1.6L10.7 56.9v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L89.3 60v-3.1L53.9 21.6c-1.1-1.1-2.5-1.6-3.9-1.6zM50 31.5c-1.4 0-2.8 0.5-3.9 1.6L20.8 65.8v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L79.2 69v-3.1L53.9 33.1c-1.1-1.1-2.5-1.6-3.9-1.6zM50 43c-1.4 0-2.8 0.5-3.9 1.6L30.9 73.5v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L69.1 76.6v-3.1L53.9 44.6c-1.1-1.1-2.5-1.6-3.9-1.6zM50 54.5c-1.4 0-2.8 0.5-3.9 1.6L41 81.3v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L59 84.4v-3.1L53.9 56.1c-1.1-1.1-2.5-1.6-3.9-1.6zM50 66c-1.4 0-2.8 0.5-3.9 1.6L51 77.2v3.1L46.1 90c1.1 1.1 2.5 1.6 3.9 1.6s2.8-0.5 3.9-1.6L50 80.3v-3.1L53.9 67.6c-1.1-1.1-2.5-1.6-3.9-1.6z" /></svg>'); /* Punisher Skull as SVG background */
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 80%; /* Größe des Skulls */
-            animation: glitchBg 10s infinite alternate; /* Hintergrund-Glitch-Effekt */
+            /* Funkelnder Sternenhimmel-Effekt */
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 50px 160px, #00e6e6, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 90px 40px, #ff00ff, rgba(0,0,0,0));
+            background-size: 200px 200px;
+            animation: twinkle 4s infinite linear;
         }
 
-        @keyframes glitchBg {
-            0% { background-position: center; filter: hue-rotate(0deg); }
-            25% { background-position: top left; filter: hue-rotate(90deg); }
-            50% { background-position: bottom right; filter: hue-rotate(180deg); }
-            75% { background-position: top right; filter: hue-rotate(270deg); }
-            100% { background-position: center; filter: hue-rotate(360deg); }
+        @keyframes twinkle {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; transform: scale(1.02); }
+            100% { opacity: 0.8; }
         }
 
         .window {
             position: absolute;
-            background: rgba(10, 10, 10, 0.9); /* Halbdurchsichtiger dunkler Hintergrund */
-            border: 2px solid #ff00ff; /* Neon Pinker Rahmen */
+            background: rgba(0, 0, 0, 0.85);
+            border: 2px solid #ff00ff;
             padding: 20px;
-            width: 300px;
-            box-shadow: 0 0 15px #ff00ff, inset 0 0 5px #ff00ff; /* Neon-Leuchten */
-            border-radius: 3px;
-            z-index: 1000; /* Immer oben */
-            transition: transform 0.1s ease-out; /* Für Wackel-Effekt */
-            animation: windowAppear 0.5s ease-out forwards;
+            width: 320px;
+            box-shadow: 0 0 20px #ff00ff;
+            border-radius: 10px;
+            z-index: 100;
         }
 
-        @keyframes windowAppear {
-            from { opacity: 0; transform: scale(0.8) translateY(-20px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
-        .window h2 {
-            font-family: 'Press Start 2P', cursive; /* Retro-Pixel-Look */
-            font-size: 1.4rem;
-            margin-top: 0;
-            text-align: center;
-            text-shadow: 0 0 8px #00e6e6; /* Leuchtender Text */
+        h2 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8rem;
+            line-height: 1.5;
             color: #00e6e6;
+            text-shadow: 0 0 5px #00e6e6;
         }
 
         input {
-            width: calc(100% - 10px);
-            margin: 10px 0;
-            padding: 10px;
-            background: #222;
-            border: 1px solid #00e6e6;
-            color: #00e6e6;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1rem;
-            box-shadow: 0 0 5px #00e6e6;
+            width: 90%;
+            background: #111;
+            border: 1px solid #ff00ff;
+            color: #fff;
+            padding: 8px;
+            margin: 15px 0;
             outline: none;
         }
 
-        button { 
-            background: #ff00ff; /* Neon Pink Button */
-            color: #0d0d0d; /* Dunkler Text auf Button */
-            border: none; 
-            padding: 10px 20px; 
-            cursor: pointer;
+        button {
+            background: #ff00ff;
+            color: #000;
+            border: none;
+            padding: 10px 15px;
             font-weight: bold;
+            cursor: pointer;
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            text-shadow: 0 0 5px #00e6e6;
-            box-shadow: 0 0 10px #ff00ff;
-            transition: background 0.2s ease, box-shadow 0.2s ease;
+            width: 100%;
         }
-        button:hover { 
-            background: #ff33ff; 
-            box-shadow: 0 0 20px #ff33ff;
+
+        button:hover {
+            background: #00e6e6;
+            box-shadow: 0 0 15px #00e6e6;
         }
     </style>
 </head>
 <body>
 
     <div id="container">
-        <div class="window" style="top: 30%; left: 35%;" id="initial-window">
+        <div class="window" style="top: 30%; left: 35%;">
             <h2>Warum hast du auf den Link gedrückt?</h2>
-            <input type="text" placeholder="Erklär dich..." id="input-start">
-            <br>
-            <button onclick="spawnWhy(this.parentNode)">Ich muss mich erklären</button>
+            <input type="text" id="first-input" placeholder="Erklär dich...">
+            <button onclick="spawnWindow(this.parentNode)">Antworten</button>
         </div>
     </div>
 
     <script>
-        let zIndexCounter = 1000; // Für überlappende Fenster
+        let zIndex = 100;
+        
+        // Liste mit verschiedenen Fragen
+        const questions = [
+            "Aber... warum?",
+            "Bist du dir da sicher?",
+            "Und was bedeutet das für dich?",
+            "Ist das deine endgültige Antwort?",
+            "Warum fühlst du so?",
+            "Wer hat dir das gesagt?",
+            "Glaubst du wirklich daran?",
+            "Was wäre, wenn das Gegenteil wahr ist?",
+            "Warum antwortest du überhaupt noch?",
+            "Suchst du hier nach etwas Bestimmtem?"
+        ];
 
-        function spawnWhy(parentWindow) {
+        function spawnWindow(parent) {
             const container = document.getElementById('container');
-            
-            // Zufällige Position berechnen, leicht variiert um das Chaos zu steigern
-            const x = Math.random() * (window.innerWidth - 350) + 20; // 20px Rand
-            const y = Math.random() * (window.innerHeight - 200) + 20; // 20px Rand
-            
-            // Neues Fenster-Element erstellen
-            const newWindow = document.createElement('div');
-            newWindow.className = 'window';
-            newWindow.style.left = x + 'px';
-            newWindow.style.top = y + 'px';
-            newWindow.style.zIndex = ++zIndexCounter; // Sorgt für Überlappung
+            zIndex++;
 
-            // Wackel-Effekt (optional, kann entfernt werden)
-            newWindow.style.transform = `translate(${Math.random() * 10 - 5}px, ${Math.random() * 10 - 5}px)`; 
+            // Zufällige Position
+            const x = Math.random() * (window.innerWidth - 350);
+            const y = Math.random() * (window.innerHeight - 250);
             
-            // Inhalt des neuen Fensters
-            newWindow.innerHTML = `
-                <h2>Aber... warum?</h2>
-                <input type="text" placeholder="Gibt es denn kein Ende?">
-                <br>
-                <button onclick="spawnWhy(this.parentNode)">Ich muss weiter erklären!</button>
+            // Zufällige Frage auswählen
+            const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+
+            const win = document.createElement('div');
+            win.className = 'window';
+            win.style.left = x + 'px';
+            win.style.top = y + 'px';
+            win.style.zIndex = zIndex;
+
+            win.innerHTML = `
+                <h2>${randomQuestion}</h2>
+                <input type="text" placeholder="...">
+                <button onclick="spawnWindow(this.parentNode)">Weiter erklären</button>
             `;
-            
-            container.appendChild(newWindow);
-            
-            // Optional: Eingabe aus dem vorherigen Fenster löschen
-            const previousInput = parentWindow.querySelector('input');
-            if (previousInput) {
-                previousInput.value = "";
-            }
 
-            // Fokus auf das neue Input-Feld setzen
-            newWindow.querySelector('input').focus();
+            container.appendChild(win);
+            
+            // Fokus auf das neue Feld
+            win.querySelector('input').focus();
         }
     </script>
 </body>
